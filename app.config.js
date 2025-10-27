@@ -1,0 +1,8 @@
+import "dotenv/config";
+
+export default ({ config }) => ({
+  ...config,
+  extra: {
+    clerkPublishableKey: process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY,
+  },
+});

@@ -5,6 +5,9 @@ import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { Text } from "@react-navigation/elements";
 import { Linking, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
+
+const publishableKey = Constants.expoConfig.extra.clerkPublishableKey;
 
 export default function RootLayoutNav() {
   const telegramUsername = "Eyobex1";
@@ -16,7 +19,7 @@ export default function RootLayoutNav() {
     );
   };
   return (
-    <ClerkProvider tokenCache={tokenCache}>
+    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <SafeScreen>
         <Slot />
         <Text style={styles.footer}>
